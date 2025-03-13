@@ -32,6 +32,7 @@ const styles = (_theme: Theme, { _chatWidth }: IProps) => {
             transition: 'max-height 0.3s',
 
             '& #smileysContainer': {
+                paddingLeft: 0,
                 backgroundColor: '#131519',
                 borderTop: '1px solid #A4B8D1'
             }
@@ -182,7 +183,10 @@ class ChatInput extends Component<IProps, IState> {
                         <div
                             className = 'smiley-input'>
                             <div
-                                className = { classes.smileysPanel } >
+                                aria-label = { this.props.t('chat.smileysPanel') }
+                                className = { classes.smileysPanel }
+                                ref = { this._smileysContainerRef }
+                                tabIndex = { 0 } >
                                 <SmileysPanel
                                     onSmileySelect = { this._onSmileySelect } />
                             </div>
