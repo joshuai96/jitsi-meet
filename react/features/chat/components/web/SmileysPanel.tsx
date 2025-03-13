@@ -87,7 +87,7 @@ class SmileysPanel extends PureComponent<IProps> {
      */
     override render() {
         const smileyItems = Object.keys(smileys).map(smileyKey => (
-            <div
+            <li
                 className = 'smileyContainer'
                 id = { smileyKey }
                 key = { smileyKey }
@@ -101,18 +101,18 @@ class SmileysPanel extends PureComponent<IProps> {
                         onlyEmojiClassName = 'smiley'
                         text = { smileys[smileyKey as keyof typeof smileys] } />
                 </Tooltip>
-            </div>
+            </li>
         ));
 
         return (
-            <div
+            <ul
                 aria-orientation = 'horizontal'
                 id = 'smileysContainer'
                 onKeyDown = { this._onEscKey }
                 role = 'listbox'
                 tabIndex = { -1 }>
                 { smileyItems }
-            </div>
+            </ul>
         );
     }
 }
